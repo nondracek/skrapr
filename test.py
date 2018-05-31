@@ -1,4 +1,4 @@
-word = 'hello'
+word = 'work'
 
 if word == 'hello':
     print True
