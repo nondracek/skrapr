@@ -8,7 +8,9 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 
 # Set the path of the chromedriver
-chromedriverPath = os.getcwd() + '/src/scraper/dependencies/chromedriver'
+chromedriverPath = os.getcwd() + '/dependencies/chromedriver'
+
+print chromedriverPath
 
 # Initiate the webdriver and set the li_at cookie
 browser = webdriver.Chrome(chromedriverPath)
