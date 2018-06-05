@@ -48,9 +48,12 @@ personResults = soup.find_all("span", {"class": "name actor-name"})
 for personResult in personResults: 
     # get their name
     name = personResult.text
-    # and the URL to their profile
+    # and the URL to their profile  
     liURL = personResult.parent.parent.parent.attrs['href']
     URL = 'https://www.linkedin.com' + liURL
     results += [{'name': name, 'URL': URL}]
-print(results)
+
+n = int(input('# of results?'))
+
+print(results[:n])
 
