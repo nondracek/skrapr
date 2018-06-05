@@ -40,7 +40,7 @@ class personSearch:
         html = self.browser.page_source
         self.soup = BeautifulSoup(html, 'lxml')
 
-    def get_results(self, n = None, ):
+    def getResults(self, n = None, ):
         personResults = self.soup.find_all("span", {"class": "name actor-name"})
         # for each person
         for personResult in personResults: 
@@ -59,7 +59,7 @@ class personSearch:
 crawler = personSearch()
 crawler.connect('AQEDARz6R7AAO180AAABY8dfBtIAAAFj62uK0lYAz8QXn6gzeD8nhfHd3MTNmHrdIni1EV51KoSTXtdcf9yiY1XppYYa-DISIY3cusw_ieSBVPvumyU-yVLe42EQbdFEBfXIRbdRL8sdxl-0jAoie8ua')
 crawler.search()
-crawler.get_results()
+crawler.getResults()
 
 
 

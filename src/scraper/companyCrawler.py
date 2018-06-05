@@ -35,7 +35,7 @@ class companySearch:
         html = self.browser.page_source
         self.soup = BeautifulSoup(html, 'lxml')
 
-    def get_results(self, n = None, ):
+    def getResults(self, n = None, ):
         companyResults = self.soup.find_all("div", {"class": "search-result__info"})
         # for each company
         for companyResult in companyResults: 
@@ -56,7 +56,7 @@ class companySearch:
 crawler =companySearch()
 crawler.connect('AQEDARz6R7AAO180AAABY8dfBtIAAAFj62uK0lYAz8QXn6gzeD8nhfHd3MTNmHrdIni1EV51KoSTXtdcf9yiY1XppYYa-DISIY3cusw_ieSBVPvumyU-yVLe42EQbdFEBfXIRbdRL8sdxl-0jAoie8ua')
 crawler.search()
-crawler.get_results()
+crawler.getResults()
 
 
 
