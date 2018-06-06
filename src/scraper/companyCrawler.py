@@ -23,19 +23,15 @@ class companySearch:
             'domain': '.linkedin.com'
         })
 
-    def search(self, input_company = None):
-        # CLI search
-        if not input_company:
-            self.company['keywords'] = input("Search?")
-        else: 
-            self.company= input_company
+    def search(self, input_company):
+        self.company = input_company
         # construct URL and scrape results
         companySearchURL = self.baseURL + urlencode(self.company, quote_via=quote)
         self.browser.get(companySearchURL)
         html = self.browser.page_source
         self.soup = BeautifulSoup(html, 'lxml')
 
-    def getResults(self, n = None, ):
+    def getResults(self):
         companyResults = self.soup.find_all("div", {"class": "search-result__info"})
         # for each company
         for companyResult in companyResults: 
@@ -47,23 +43,5 @@ class companySearch:
             # Get their industry
             industry = companyResult.find('p', {'class': "subline-level-1"}).text.lstrip().rstrip()
             self.results += [{'name': name, 'URL': URL, 'industry': industry}]
-        # CLI output
-        if not n: 
-            n = int(input('# of results?'))
-            print(self.results[:n])
-        return self.results[:n]
-
-crawler =companySearch()
-crawler.connect('AQEDARz6R7AAO180AAABY8dfBtIAAAFj62uK0lYAz8QXn6gzeD8nhfHd3MTNmHrdIni1EV51KoSTXtdcf9yiY1XppYYa-DISIY3cusw_ieSBVPvumyU-yVLe42EQbdFEBfXIRbdRL8sdxl-0jAoie8ua')
-crawler.search()
-crawler.getResults()
-
-
-
-
-
-
-
-
-
-
+        
+        return self.results
