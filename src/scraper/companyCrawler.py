@@ -8,7 +8,7 @@ from urllib.parse import quote
 
 class companySearch:
     def __init__(self):
-        self.chromedriverPath = os.getcwd() + '/dependencies/chromedriver'
+        self.chromedriverPath = os.getcwd() + '/src/scraper/dependencies/chromedriver'
         self.company = {}
         self.baseURL ='https://www.linkedin.com/search/results/companies/?'
         self.results = []

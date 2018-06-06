@@ -1,5 +1,5 @@
-import src.scraper.personCrawler as personCrawler
-import src.scraper.companyCrawler as companyCrawler
+import personCrawler 
+import companyCrawler
 
 class cli:
 
@@ -37,6 +37,3 @@ class cli:
         self.crawler.search(self.__searchQuery())
         self.results = self.crawler.getResults()
         print(self.results[:self.__resultNumber()])
-
-search = cli()
-search.runSearch()
