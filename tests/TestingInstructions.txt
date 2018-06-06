@@ -1,0 +1,9 @@
+***Write good and usefule tests!!!***
+
+Look up the documentation of pytest for how to write and test using pytest.
+
+TL;DR
+1. write a function that starts with 'test' i.e. 'test_scrapers()'
+2. Use "assert" on a true or false in the function as the 'return'
+	i.e. 'assert x == 3'
+3. In terminal, run "python3 -m pytest path/to/testFile"
