@@ -1,0 +1,4 @@
+{
+  "test_retrievers.py::test_company_retriever": true, 
+  "test_retrievers.py::test_profile_retriever": true
+}

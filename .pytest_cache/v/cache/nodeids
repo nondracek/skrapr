@@ -1,0 +1,4 @@
+[
+  "tests/test_retrievers.py::test_profile_retriever",
+  "tests/test_retrievers.py::test_company_retriever"
+]
