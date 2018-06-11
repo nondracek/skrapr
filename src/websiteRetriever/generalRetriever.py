@@ -8,36 +8,16 @@ from selenium import webdriver
 
 
 
-
 class LIGeneralRetriever:
 
-    def __init__(self):
+    def __init__(self, browser):
         self.timeout = 10
         self.scroll_increment = 1000 
         self.scroll_pause = .01
         self.scrollEndPause = 3
         self.expandable_button_selectors = []
-        return
-
-    # Setup driver and set cookies
-    def logIn(self, cookie):
-        
-        # Set the path of the chromedriver
-        chromedriverPath = os.getcwd() + '/dependencies/chromedriver'
-            
-        # Initiate the webdriver and set the li_at cookie
-        options = webdriver.ChromeOptions()
-        options.add_argument('headless')
-        browser = webdriver.Chrome(chromedriverPath, chrome_options=options)
-        browser.get('http://www.linkedin.com')
-        browser.add_cookie({
-            'name': 'li_at',
-            'value': cookie,
-            'domain': '.linkedin.com'
-        })
-
-        # Save the browser to the class instance
         self.browser = browser
+        return
 
     # Place holder for a page loading function 
     def loadPage(self, URL):
@@ -73,8 +53,7 @@ class LIGeneralRetriever:
         return self.browser.page_source
 
     # Combination of other funcs to output html given a URL
-    def retrieve(self, URL, cookie):
-        self.logIn(cookie)
+    def retrieve(self, URL):
         html = []
         for url in URL:
             self.loadPage(url)
