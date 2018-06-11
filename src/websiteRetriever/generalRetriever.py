@@ -5,7 +5,7 @@ import time
 from bs4 import BeautifulSoup
 
 from selenium import webdriver
-
+from cookieRetriever import cookieRetriever
 
 
 
@@ -20,10 +20,10 @@ class LIGeneralRetriever:
         return
 
     # Setup driver and set cookies
-    def logIn(self, cookie):
-        
+    def logIn(self):
+
         # Set the path of the chromedriver
-        chromedriverPath = os.getcwd() + '/dependencies/chromedriver'
+        chromedriverPath = '../dependencies/chromedriver'
             
         # Initiate the webdriver and set the li_at cookie
         options = webdriver.ChromeOptions()
@@ -32,7 +32,7 @@ class LIGeneralRetriever:
         browser.get('http://www.linkedin.com')
         browser.add_cookie({
             'name': 'li_at',
-            'value': cookie,
+            'value': self.cookie,
             'domain': '.linkedin.com'
         })
 
@@ -74,7 +74,8 @@ class LIGeneralRetriever:
 
     # Combination of other funcs to output html given a URL
     def retrieve(self, URL, cookie):
-        self.logIn(cookie)
+        self.cookie = cookie
+        self.logIn()
         html = []
         for url in URL:
             self.loadPage(url)
