@@ -25,7 +25,6 @@ class logIn():
         }
         
         client.post(LOGIN_URL, data=login_information)
-        print(client.cookies)
         
         self.cookie = client.cookies['li_at']
 
