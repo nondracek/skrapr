@@ -5,7 +5,7 @@ import time
 from bs4 import BeautifulSoup
 
 from selenium import webdriver
-
+from cookieRetriever import cookieRetriever
 
 
 class LIGeneralRetriever:
@@ -16,8 +16,27 @@ class LIGeneralRetriever:
         self.scroll_pause = .01
         self.scrollEndPause = 3
         self.expandable_button_selectors = []
-        self.browser = browser
         return
+
+    # Setup driver and set cookies
+    def logIn(self):
+
+        # Set the path of the chromedriver
+        chromedriverPath = '../dependencies/chromedriver'
+            
+        # Initiate the webdriver and set the li_at cookie
+        options = webdriver.ChromeOptions()
+        options.add_argument('headless')
+        browser = webdriver.Chrome(chromedriverPath, chrome_options=options)
+        browser.get('http://www.linkedin.com')
+        browser.add_cookie({
+            'name': 'li_at',
+            'value': self.cookie,
+            'domain': '.linkedin.com'
+        })
+
+        # Save the browser to the class instance
+        self.browser = browser
 
     # Place holder for a page loading function 
     def loadPage(self, URL):

@@ -8,7 +8,7 @@ sys.path.append(retrieverPath)
 print(sys.path)
 from profileRetriever import LIProfileRetriever
 from companyRetriever import LICompanyRetriever
-from logIn import logIn
+from cookieRetriever import cookieRetriever
 
 def test_profile_retriever():
     URL = ['https://www.linkedin.com/in/nick-bunn-793244114/']
