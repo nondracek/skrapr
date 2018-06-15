@@ -14,8 +14,8 @@ from utils import AnyEC
 from generalRetriever import LIGeneralRetriever
 
 class LIProfileRetriever(LIGeneralRetriever):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, browser):
+        super().__init__(browser)
 
 
         self.expandable_button_selectors = [
